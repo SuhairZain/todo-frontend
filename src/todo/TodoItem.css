@@ -14,9 +14,16 @@
   height: 24px;
 }
 
-.Todo-item-text {
+.Todo-text-form {
   flex: 1;
+}
+
+.Todo-text {
+  background-color: inherit;
+  border: none;
+  font-size: 1em;
   margin: 0px 16px;
+  width: 100%;
 }
 
 .Todo-item-delete-icon {

@@ -45,3 +45,10 @@ body {
   height: 16px;
   padding: 24px;
 }
+
+.App-loading-error {
+  justify-content: center;
+  display: flex;
+  padding: 48px;
+  text-align: center;
+}
