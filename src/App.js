@@ -116,7 +116,7 @@ class App extends Component {
     </div>;
 
   renderTodoItems = items =>
-    <div ref={this.dragulaDecorator}>
+    <div className="App-todo-items" ref={this.dragulaDecorator}>
       {items.map(({ _id, done, text }) =>
         <ExistingTodo
           key={_id}
