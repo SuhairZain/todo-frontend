@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import classnames from "classnames";
@@ -13,11 +13,16 @@ const TodoItem = ({ done, text }) =>
   <div
     className={classnames("Todo-item-root", { "Todo-item-root-done": done })}
   >
-    <img src={done ? doneIcon : undoneIcon} className="Todo-item-tick" />
+    <img
+      src={done ? doneIcon : undoneIcon}
+      alt={`Mark as ${done ? "undone" : "done"}`}
+      className="Todo-item-tick"
+    />
     <span className="Todo-item-text">
       {text}
     </span>
-    {!done && <img src={remove} className="Todo-item-delete-icon" />}
+    {!done &&
+      <img src={remove} alt="Delete todo" className="Todo-item-delete-icon" />}
   </div>;
 
 TodoItem.propTypes = {
