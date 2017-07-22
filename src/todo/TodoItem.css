@@ -1,0 +1,25 @@
+.Todo-item-root {
+  align-items: center;
+  background-color: #ffffff;
+  display: flex;
+  padding: 24px 36px;
+}
+
+.Todo-item-root-done {
+  background-color: #f8f8f8;
+}
+
+.Todo-item-tick {
+  cursor: pointer;
+  height: 24px;
+}
+
+.Todo-item-text {
+  flex: 1;
+  margin: 0px 16px;
+}
+
+.Todo-item-delete-icon {
+  cursor: pointer;
+  height: 16px;
+}

@@ -1,0 +1,47 @@
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  align-items: center;
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+  padding: 24px 0;
+}
+
+.Content {
+  width: 60%;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  align-items: center;
+  background-color: #112d4e;
+  display: flex;
+  color: white;
+}
+
+.App-header-title {
+  flex: 1;
+  margin: 16px 0 16px 24px;
+}
+
+.Plus-icon {
+  align-self: flex-end;
+  background-color: #0a1d33;
+  cursor: pointer;
+  height: 16px;
+  padding: 24px;
+}
