@@ -65,9 +65,19 @@ class TodoItem extends Component {
   };
 
   render() {
-    const { classNames, leftIcon, leftAlt, rightIcon, rightAlt } = this.props;
+    const {
+      _id,
+      classNames,
+      leftIcon,
+      leftAlt,
+      rightIcon,
+      rightAlt
+    } = this.props;
     return (
-      <div className={classnames("Todo-item-root", classNames)}>
+      <div
+        id={`item_${_id}`}
+        className={classnames("Todo-item-root", classNames)}
+      >
         <img
           src={leftIcon}
           alt={leftAlt}

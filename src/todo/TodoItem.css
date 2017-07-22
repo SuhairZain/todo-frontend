@@ -3,6 +3,12 @@
   background-color: #ffffff;
   display: flex;
   padding: 24px 36px;
+  transition: transform 0.5s;
+}
+
+.Todo-item-root.gu-transit {
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
 }
 
 .Todo-item-root-done {

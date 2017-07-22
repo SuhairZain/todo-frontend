@@ -51,9 +51,10 @@ class ExistingTodo extends Component {
   };
 
   render() {
-    const { done, text } = this.props;
+    const { _id, done, text } = this.props;
     return (
       <TodoItem
+        _id={_id}
         classNames={done ? ["Todo-item-root-done"] : []}
         leftIcon={done ? doneIcon : undone}
         text={text}

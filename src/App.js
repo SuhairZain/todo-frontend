@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+
+import Dragula from "react-dragula";
+
 import "./App.css";
 
 import plus from "./images/plus.svg";
@@ -66,6 +69,45 @@ class App extends Component {
     }));
   };
 
+  dragulaDecorator = componentBackingInstance => {
+    if (componentBackingInstance) {
+      let options = {
+        moves: (a, b, c, d) => {
+          return true;
+        }
+      };
+      const drake = Dragula([componentBackingInstance], options);
+      drake.on("drop", el => {
+        const { items } = this.state;
+        const sourceId = el.id.split("_")[1];
+        const sourceIndex = items.findIndex(({ _id }) => _id === sourceId);
+        const targetIndex = Array.from(el.parentNode.childNodes).indexOf(el);
+        this.onDragReorder(sourceIndex, targetIndex);
+      });
+    }
+  };
+
+  onDragReorder = (sourceIndex, targetIndex) => {
+    const { items } = this.state;
+
+    [targetIndex, sourceIndex] = [sourceIndex, targetIndex].sort();
+    fetch(`${BASE_PATH}/reorder/${items[sourceIndex]._id}/${targetIndex}`, {
+      method: "PUT"
+    })
+      .then(() => {
+        this.setState(state => ({
+          ...state,
+          items: [
+            ...items.slice(0, targetIndex),
+            items[sourceIndex],
+            ...items.slice(targetIndex, sourceIndex),
+            ...items.slice(sourceIndex + 1)
+          ]
+        }));
+      })
+      .catch(this.setErrorMessage);
+  };
+
   renderLoadingOrError = error =>
     <div className="App-loading-error">
       <span>
@@ -74,7 +116,7 @@ class App extends Component {
     </div>;
 
   renderTodoItems = items =>
-    <div>
+    <div ref={this.dragulaDecorator}>
       {items.map(({ _id, done, text }) =>
         <ExistingTodo
           key={_id}
