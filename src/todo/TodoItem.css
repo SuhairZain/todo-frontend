@@ -36,3 +36,7 @@
   cursor: pointer;
   height: 16px;
 }
+
+.Todo-item-loading {
+  height: 16px;
+}

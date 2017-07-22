@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import classnames from "classnames";
 
+import threedots from "./three-dots.svg";
+
 import "./TodoItem.css";
 
 class TodoItem extends Component {
@@ -10,6 +12,7 @@ class TodoItem extends Component {
     super(props);
 
     this.state = {
+      loading: false,
       text: props.text || ""
     };
   }
@@ -98,6 +101,12 @@ class TodoItem extends Component {
             src={rightIcon}
             className="Todo-item-delete-icon"
             onClick={this.onRight}
+          />}
+        {this.state.loading &&
+          <img
+            alt="Loading. Please wait"
+            className="Todo-item-loading"
+            src={threedots}
           />}
       </div>
     );
